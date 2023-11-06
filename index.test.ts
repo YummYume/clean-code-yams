@@ -14,4 +14,10 @@ describe('getScoreForDices returns correct score', () => {
 
     expect(score).toBe(50);
   });
+
+  test('Grande suite should return 40', () => {
+    const score = getScoreForDices([2, 3, 4, 5, 6]);
+
+    expect(score).toBe(40);
+  });
 });
