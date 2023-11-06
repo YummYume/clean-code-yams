@@ -32,4 +32,10 @@ describe('getScoreForDices returns correct score', () => {
 
     expect(score).toBe(35);
   });
+
+  test('Full should return 30', () => {
+    const score = getScoreForDices([2, 1, 1, 1, 2]);
+
+    expect(score).toBe(30);
+  });
 });
