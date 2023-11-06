@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { getScoreForDices } from '.';
+import { type Dices, getScoreForDices, throwDices } from '.';
 
 describe('getScoreForDices returns correct score', () => {
   test('No figure should return sum of dices', () => {
@@ -40,8 +40,9 @@ describe('getScoreForDices returns correct score', () => {
   });
 });
 
-describe.todo('throwDices returns correct score', () => {
-  const throwResults = [
+describe('throwDices returns correct score', () => {
+  const throwResults: { throws: Dices[], expectedScore: number }[] = [
+    // No figure
     { throws: [[1, 3, 5, 6, 2], [1, 3, 5, 6, 2], [1, 3, 5, 6, 2]], expectedScore: 51 },
     // YAMS
     { throws: [[1, 3, 5, 6, 2], [1, 3, 5, 6, 2], [1, 1, 1, 1, 1]], expectedScore: 84 },
@@ -56,8 +57,8 @@ describe.todo('throwDices returns correct score', () => {
   ];
 
   test.each(throwResults)('throwDices($throws) matches $expectedScore', ({ throws, expectedScore }) => {
-    // const score = throwDices(throws);
+    const score = throwDices(...throws);
 
-    // expect(score).toBe(expectedScore);
+    expect(score).toBe(expectedScore);
   });
 });

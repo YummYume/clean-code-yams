@@ -4,8 +4,8 @@ const BRELAN = 28 as const;
 const CARRE = 35 as const;
 const FULL = 30 as const;
 
-type Dice = 1 | 2 | 3 | 4 | 5 | 6;
-type Dices = [Dice, Dice, Dice, Dice, Dice];
+export type Dice = 1 | 2 | 3 | 4 | 5 | 6;
+export type Dices = [Dice, Dice, Dice, Dice, Dice];
 
 const isYams = (dices: Dices) => dices[0] === dices[4];
 
@@ -71,3 +71,5 @@ export const getScoreForDices = (dices: Dices) => {
 
   return dices.reduce((sum, dice) => sum + dice, 0);
 }
+
+export const throwDices = (...dices: Dices[]) => dices.reduce((sum, dices) => sum + getScoreForDices(dices), 0)
