@@ -1,6 +1,6 @@
-import { describe, expect, mock, test } from "bun:test";
+import { describe, expect, test } from "bun:test";
 
-const getScoreForDices = mock((dices: number[]) => 0);
+import { getScoreForDices } from ".";
 
 describe('getScoreForDices returns correct score', () => {
   test('No figure should return sum of dices', () => {
