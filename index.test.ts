@@ -1,12 +1,12 @@
-import { describe, expect, test } from "bun:test";
+import { describe, expect, test } from 'bun:test';
 
-import { getScoreForDices } from ".";
+import { getScoreForDices } from '.';
 
 describe('getScoreForDices returns correct score', () => {
   test('No figure should return sum of dices', () => {
-    const score = getScoreForDices([1, 3, 5, 7, 9]);
+    const score = getScoreForDices([1, 3, 5, 6, 2]);
 
-    expect(score).toBe(25);
+    expect(score).toBe(17);
   });
 
   test('YAMS should return 50', () => {
@@ -19,5 +19,11 @@ describe('getScoreForDices returns correct score', () => {
     const score = getScoreForDices([2, 3, 4, 5, 6]);
 
     expect(score).toBe(40);
+  });
+
+  test('Brelan should return 28', () => {
+    const score = getScoreForDices([1, 1, 6, 2, 1]);
+
+    expect(score).toBe(28);
   });
 });

@@ -1,9 +1,13 @@
 const YAMS = 50 as const;
 const GRANDE_SUITE = 40 as const;
+const BRELAN = 28 as const;
 
-const isYams = (dices: number[]) => dices[0] === dices[4];
+type Dice = 1 | 2 | 3 | 4 | 5 | 6;
+type Dices = [Dice, Dice, Dice, Dice, Dice];
 
-const isGrandeSuite = (dices: number[]) => {
+const isYams = (dices: Dices) => dices[0] === dices[4];
+
+const isGrandeSuite = (dices: Dices) => {
   let previousDiceResult = dices[0];
 
   for (const dice of dices.slice(1)) {
@@ -17,7 +21,7 @@ const isGrandeSuite = (dices: number[]) => {
   return true;
 };
 
-export const getScoreForDices = (dices: number[]) => {
+export const getScoreForDices = (dices: Dices) => {
   if (dices.length !== 5) {
     throw new Error('Function getScoreForDices requires exactly 5 dices.');
   }
