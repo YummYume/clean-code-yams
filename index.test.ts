@@ -8,4 +8,10 @@ describe('getScoreForDices returns correct score', () => {
 
     expect(score).toBe(15);
   });
+
+  test('YAMS should return 50', () => {
+    const score = getScoreForDices([6, 6, 6, 6, 6]);
+
+    expect(score).toBe(50);
+  });
 });
