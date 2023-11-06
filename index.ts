@@ -24,6 +24,8 @@ const isGrandeSuite = (dices: Dices) => {
 
 const isBrelan = (dices: Dices) => dices[0] === dices[2] || dices[1] === dices[3] || dices[2] === dices[4];
 
+const isCarre = (dices: Dices) => dices[0] === dices[3] || dices[1] === dices[4];
+
 export const getScoreForDices = (dices: Dices) => {
   if (dices.length !== 5) {
     throw new Error('Function getScoreForDices requires exactly 5 dices.');
@@ -39,6 +41,11 @@ export const getScoreForDices = (dices: Dices) => {
   // Grande suite
   if (isGrandeSuite(sortedDices)) {
     return GRANDE_SUITE;
+  }
+
+  // Carré
+  if (isCarre(sortedDices)) {
+    return CARRE;
   }
 
   // Brelan
