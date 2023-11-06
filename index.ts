@@ -27,6 +27,16 @@ const isBrelan = (dices: Dices) => dices[0] === dices[2] || dices[1] === dices[3
 
 const isCarre = (dices: Dices) => dices[0] === dices[3] || dices[1] === dices[4];
 
+const isFull = (dices: Dices) => {
+  if (!isBrelan(dices)) {
+    return false;
+  }
+
+  const remainingDices = dices.filter(dice => dice !== dices[2]);
+
+  return remainingDices[0] === remainingDices[1];
+}
+
 export const getScoreForDices = (dices: Dices) => {
   if (dices.length !== 5) {
     throw new Error('Function getScoreForDices requires exactly 5 dices.');
@@ -47,6 +57,11 @@ export const getScoreForDices = (dices: Dices) => {
   // Carré
   if (isCarre(sortedDices)) {
     return CARRE;
+  }
+
+  // Full
+  if (isFull(sortedDices)) {
+    return FULL;
   }
 
   // Brelan
