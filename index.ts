@@ -1,6 +1,7 @@
 const YAMS = 50 as const;
 const GRANDE_SUITE = 40 as const;
 const BRELAN = 28 as const;
+const CARRE = 35 as const;
 
 type Dice = 1 | 2 | 3 | 4 | 5 | 6;
 type Dices = [Dice, Dice, Dice, Dice, Dice];

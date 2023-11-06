@@ -26,4 +26,10 @@ describe('getScoreForDices returns correct score', () => {
 
     expect(score).toBe(28);
   });
+
+  test('Carré should return 35 ', () => {
+    const score = getScoreForDices([1, 1, 1, 2, 1]);
+
+    expect(score).toBe(35);
+  });
 });
